@@ -1,0 +1,137 @@
+{
+  "name": "ngxui",
+  "$schema": "node_modules/nx/schemas/project-schema.json",
+  "includedScripts": [],
+  "projectType": "application",
+  "prefix": "app",
+  "sourceRoot": "./src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:application",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/ngxui",
+        "index": "./src/index.html",
+        "browser": "./src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "public"
+          }
+        ],
+        "styles": ["./src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "4kb",
+              "maximumError": "8kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "ngxui:build:production"
+        },
+        "development": {
+          "buildTarget": "ngxui:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "ngxui:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": ["./src"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectName}"],
+      "options": {
+        "jestConfig": "jest.config.app.ts"
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "ngxui:build",
+        "port": 4200,
+        "staticFilePath": "dist/ngxui/browser",
+        "spa": true
+      }
+    },
+    "local-registry": {
+      "executor": "@nx/js:verdaccio",
+      "options": {
+        "port": 4873,
+        "config": ".verdaccio/config.yml",
+        "storage": "tmp/local-registry/storage"
+      }
+    },
+    "build-all": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "nx build @ngxui/common --configuration=production",
+          "nx build @ngxui/eval-form-expr --configuration=production",
+          "nx build @ngxui/form-core --configuration=production",
+          "nx build @ngxui/bulma-form --configuration=production"
+        ],
+        "parallel": false
+      }
+    },
+    "release-all": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "nx run @ngxui/common:nx-release-publish:production",
+          "nx run @ngxui/eval-form-expr:nx-release-publish:production",
+          "nx run @ngxui/form-core:nx-release-publish:production",
+          "nx run @ngxui/bulma-form:nx-release-publish:production"
+        ],
+        "parallel": false
+      }
+    },
+    "test-all": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "nx run @ngxui/eval-form-expr:test",
+          "nx run @ngxui/form-core:test",
+          "nx run @ngxui/bulma-form:test"
+        ],
+        "parallel": false
+      }
+    }
+  }
+}

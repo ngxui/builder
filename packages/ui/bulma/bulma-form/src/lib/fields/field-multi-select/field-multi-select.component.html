@@ -1,0 +1,15 @@
+<div class="field">
+  <div class="label">{{ field.options?.label }}</div>
+  <div class="control" *ngIf="field?.control">
+    <ng-select
+      [items]="optionsList"
+      bindLabel="label"
+      bindValue="value"
+      [(ngModel)]="value"
+      [multiple]="true"
+      [placeholder]="field.options?.placeholder || ''"
+    >
+    </ng-select>
+    <p class="help is-danger" *ngIf="ShowError">{{ errorMessage }}   </p>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2022",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "strictPropertyInitialization": false,
+    "baseUrl": ".",
+    "paths": {
+      "@ngxui/bulma-form": ["packages/ui/bulma/bulma-form/src/index.ts"],
+      "@ngxui/common": ["packages/common/src/public-api.ts"],
+      "@ngxui/eval-form-expr": ["packages/eval-form-expr/src/public-api.ts"],
+      "@ngxui/form-core": ["packages/form-core/src/public-api.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

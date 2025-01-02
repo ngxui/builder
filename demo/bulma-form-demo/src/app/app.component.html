@@ -1,0 +1,12 @@
+<div class="container is-fluid" *ngIf="formConfig">
+  <ngxui-bulma-form [formConfig]="formConfig"
+                          [parentFormGroup]="formGroup"
+                          [isSubmitted]="isSubmitted"></ngxui-bulma-form>
+  <button
+    type="submit"
+    class="button is-primary"
+    (click)="onSubmit()"
+  >
+    Submit
+  </button>
+</div>

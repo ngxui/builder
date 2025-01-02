@@ -1,0 +1,10 @@
+<div class="field">
+  <div class="label">{{ field.options?.label }}</div>
+  <textarea
+    class="textarea"
+    *ngIf="field.control"
+    [formControl]="field.control"
+    [placeholder]="field.options?.placeholder"
+  ></textarea>
+  <p class="help is-danger" *ngIf="ShowError">{{ errorMessage }}   </p>
+</div>

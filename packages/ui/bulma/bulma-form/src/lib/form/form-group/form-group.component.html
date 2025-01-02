@@ -1,0 +1,18 @@
+<div class="mx-5">
+  <div *ngFor="let row of formConfig.rows" class="columns">
+    <div
+      *ngFor="let field of row.fields"
+      class="column"
+      [ngClass]="getColumnClass(field.layout)"
+    >
+      <ng-container *ngIf="canDisplay(field)">
+        <ng-container
+          *ngComponentOutlet="
+        getFieldComponent(field.type);
+        inputs: { field, isSubmitted }
+      "
+        />
+      </ng-container>
+    </div>
+  </div>
+</div>

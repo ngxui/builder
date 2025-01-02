@@ -1,0 +1,14 @@
+<div class="field">
+  <div class="label">{{ field.options?.label }}</div>
+  <div class="control radio-list" *ngIf="field.control">
+    <label class="radio mr-1" *ngFor="let option of optionsList">
+      <input
+        type="radio"
+        [formControl]="field.control"
+        [value]="option.value"
+      />
+      {{ option.label }}
+    </label>
+    <p class="help is-danger" *ngIf="ShowError">{{ errorMessage }}   </p>
+  </div>
+</div>

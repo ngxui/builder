@@ -1,0 +1,16 @@
+<div class="field">
+  <div class="label">{{ field.options?.label }}</div>
+  <div class="control" *ngIf="field.control">
+    <div class="select">
+      <select [formControl]="field.control">
+        <option *ngIf="field.options?.placeholder" [value]="null">
+          {{field.options?.placeholder}}
+        </option>
+        <option *ngFor="let option of optionsList" [value]="option.value">
+          {{ option.label }}
+        </option>
+      </select>
+      <p class="help is-danger" *ngIf="ShowError">{{ errorMessage }}   </p>
+    </div>
+  </div>
+</div>

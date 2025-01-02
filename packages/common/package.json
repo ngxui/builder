@@ -1,0 +1,24 @@
+{
+  "name": "@ngxui/common",
+  "version": "0.0.13-beta.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ngxui/builder"
+  },
+  "author": {
+    "name": "Adel ESMAIRI",
+    "email": "esmairi.github@gmail.com",
+    "url": "https://github.com/ngxui/builder"
+  },
+  "homepage": "https://github.com/ngxui/builder#readme",
+  "keywords": [
+    "ngxui",
+    "@ngxui/common"
+  ],
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "peerDependencies": {
+    "@angular/forms": "^19.0.0"
+  }
+}

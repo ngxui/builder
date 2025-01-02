@@ -1,0 +1,41 @@
+{
+  "name": "@ngxui/eval-form-expr",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/eval-form-expr/src",
+  "projectType": "library",
+  "release": {
+    "version": {
+      "generatorOptions": {
+        "packageRoot": "dist/{projectRoot}",
+        "currentVersionResolver": "git-tag"
+      }
+    }
+  },
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/eval-form-expr",
+        "main": "packages/eval-form-expr/src/index.ts",
+        "tsConfig": "packages/eval-form-expr/tsconfig.lib.json",
+        "assets": ["packages/eval-form-expr/*.md"]
+      },
+      "dependsOn": ["build"]
+    },
+    "nx-release-publish": {
+      "options": {
+        "packageRoot": "dist/{projectRoot}",
+        "access": "public"
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/eval-form-expr/jest.config.ts"
+      }
+    }
+  }
+}

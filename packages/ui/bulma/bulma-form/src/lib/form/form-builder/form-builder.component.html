@@ -1,0 +1,9 @@
+<form [formGroup]="parentFormGroup" *ngIf="formConfig && parentFormGroup">
+  <ng-container *ngFor="let formGroupConfig of formConfig.groups">
+    <ngxui-bulma-form-group
+      [formConfig]="formGroupConfig"
+      [parentFormGroup]="parentFormGroup"
+      [isSubmitted]="isSubmitted"
+    ></ngxui-bulma-form-group>
+  </ng-container>
+</form>

@@ -1,0 +1,30 @@
+{
+  "name": "@ngxui/eval-form-expr",
+  "version": "0.0.13-beta.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ngxui/builder"
+  },
+  "author": {
+    "name": "Adel ESMAIRI",
+    "email": "esmairi.github@gmail.com",
+    "url": "https://github.com/ngxui/builder"
+  },
+  "homepage": "https://github.com/ngxui/builder#readme",
+  "keywords": [
+    "ngxui",
+    "builder",
+    "angular",
+    "eval-form-expr"
+  ],
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "peerDependencies": {
+    "@angular/forms": "^19.0.0",
+    "@ngxui/common": "^0.0.13-beta.0"
+  },
+  "type": "commonjs",
+  "main": "./src/public-api.js",
+  "typings": "./src/public-api.d.ts"
+}

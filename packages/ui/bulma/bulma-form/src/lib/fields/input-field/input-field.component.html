@@ -1,0 +1,14 @@
+<div class="field">
+  <div class="label">{{ field.options?.label }}</div>
+  <div class="control" *ngIf="field.control">
+    <input
+      class="input"
+      [formControl]="field.control"
+      type="{{ field.type }}"
+      placeholder="{{ field.options?.placeholder }}"
+      [ngClass]="{'is-danger': ShowError}"
+    />
+    <p class="help" *ngIf="field.options?.helperText">{{ field.options?.helperText }}</p>
+    <p class="help is-danger" *ngIf="ShowError">{{ errorMessage }}   </p>
+  </div>
+</div>
