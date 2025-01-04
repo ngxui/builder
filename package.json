@@ -2,11 +2,33 @@
   "name": "ngxui",
   "version": "0.0.0",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ngxui/builder"
+  },
+  "author": {
+    "name": "Adel ESMAIRI",
+    "email": "esmairi.github@gmail.com",
+    "url": "https://github.com/ngxui/builder"
+  },
+  "homepage": "https://github.com/ngxui/builder#readme",
+  "keywords": [
+    "ngxui",
+    "@ngxui/common",
+    "@ngxui/eval-form-expr",
+    "@ngxui/bulma-form",
+    "eval-form-expr",
+    "angular",
+    "builder",
+    "bulma-form"
+  ],
   "scripts": {
     "start": "nx serve",
     "test": "nx run ngxui:test-all",
     "build": "nx run ngxui:build-all",
-    "publish": "nx run ngxui:release-all"
+    "postbuild": "ts-node tools/postbuild",
+    "publish:release": "ts-node tools/publish-tagged-builds",
+    "publish::dev": "nx run ngxui:release-all"
   },
   "private": true,
   "dependencies": {
@@ -70,10 +92,10 @@
     "verdaccio": "^5.0.4"
   },
   "packages": [
-    "packages/common",
-    "packages/eval-form-expr",
-    "packages/form-core",
-    "packages/ui/bulma/bulma-form"
+    "packages/common::v0.0.13-beta.4",
+    "packages/eval-form-expr::v0.0.13-beta.4",
+    "packages/form-core::v0.0.13-beta.4",
+    "packages/ui/bulma/bulma-form::v0.0.13-beta.4"
   ],
   "nx": {
     "includedScripts": []

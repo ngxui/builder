@@ -43,21 +43,11 @@ jobs:
       - name: Run tests
         run: npm run test
 
-      - name: setup for Publish
-        run: |
-          sudo apt-get install -y jq
-          TAG_NAME="${GITHUB_REF#refs/tags/}"
-          echo "VERSION=${TAG_NAME#v}" >> $GITHUB_ENV
-          chmod +x tools/set-metadata.sh
-
-      - name: Run set-metadata script
-        run: ./tools/set-metadata.sh  # Execute the bash script
-
       - name: Publish package to npm
         if: ${{ github.event.release.draft == false }} # Only publish for non-draft releases
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm run publish
+        run: npm run publish:release
 
       # 8. Upload build artifacts
       - name: Upload build artifacts
