@@ -1,6 +1,6 @@
 {
   "name": "@ngxui/common",
-  "version": "0.0.13-beta.0",
+  "version": "0.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/ngxui/builder"
@@ -11,6 +11,7 @@
     "url": "https://github.com/ngxui/builder"
   },
   "homepage": "https://github.com/ngxui/builder#readme",
+  "license": "MIT",
   "keywords": [
     "ngxui",
     "@ngxui/common"

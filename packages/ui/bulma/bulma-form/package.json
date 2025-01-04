@@ -1,6 +1,6 @@
 {
   "name": "@ngxui/bulma-form",
-  "version": "0.0.13-beta.0",
+  "version": "0.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/ngxui/builder"
@@ -16,8 +16,8 @@
     "@angular/forms": "^19.0.0",
     "@angular/common": "^19.0.0",
     "@angular/core": "^19.0.0",
-    "@ngxui/common": "^0.0.13-beta.0",
-    "@ngxui/form-core": "^0.0.13-beta.0",
+    "@ngxui/common": "^0.0.0",
+    "@ngxui/form-core": "^0.0.0",
     "bulma": "^1.0.2",
     "@ng-select/ng-select": "^14.1.0"
   },
